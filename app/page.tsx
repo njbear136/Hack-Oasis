@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import localFont from "next/font/local";
 import { Press_Start_2P } from "next/font/google";
+import Sandyblock from "./animation";
 
 const playfair = localFont({
     src: "./fonts/HennyPenny-Regular.woff2",
@@ -24,7 +25,7 @@ const kavoon= localFont({
 });
 
 const marykate= localFont({
-    src: "./fonts/MaryKate.ttf",
+    src: "./fonts/Unkempt-Regular.ttf",
     variable: "--font-body",
 });
 
@@ -101,7 +102,7 @@ const faqData = [
     {q:"Can beginners come?", a: "Yes, of course. It will take you a bit of willpower to learn, but we have tons of resources and tutorials you can use to learn coding and get ready for the big event!"},
     {q:"Who's eligible to participate?", a: "Any teen aged 13-18 at the time of the event."},
     {q:"Is this free?", a: "Yes! Participation is absolutely free, we will be covering your food and accomodation. You can work on projects for more hours to get stipends for your flights too!"},
-    {q:"When is it?", a: "January 2027. Detailed schedule and timing will be released closer to the event."},
+    {q:"When is it?", a: "A month in 2027. Detailed schedule and timing will be released closer to the event."},
     {q:"What is Hack Club?", a: "Hack Club is a 501(c)(3) nonprofit (ein: 81-2908499) that helps high school students learn to code and build projects. We're the largest teen-led coding community, with over 50,000 students building projects with their friends in Hack Club each year. In the past, we've run events like Juice (a 2 month game jam leading to a pop-up cafe in shanghai, china), Hack Club: the game (a 2-day territory capture game across the entirety of Manhattan, NYC), and Undercity (a 4-day hardware hackathon at github hq)!"},
     {q:"I have more questions...", a: "Feel free to join our slack channel #hack-oasis and we will assist you with any questions you may have."}
 ];
@@ -163,7 +164,7 @@ export default function Home() {
             <br />
             ABU DHABI, UAE
             <br />
-            JANUARY 2027
+            2027
           </p>
 
           <Link 
@@ -184,7 +185,7 @@ export default function Home() {
 
 <section
 className= "relative flex min-h-screen items-center bg-cover bg-center px-6 py-24 sm:px-16"
-style={{backgroundImage: "url('/section-bg5.jpg')"}}
+style={{backgroundImage: "url('/section-bg5.jpg')" , backgroundAttachment: "fixed"}}
 >
     <Reveal className="max-w-3xl">
         <h2
@@ -198,6 +199,7 @@ style={{backgroundImage: "url('/section-bg5.jpg')"}}
         >
             What is Hack Oasis
         </h2>
+        <Sandyblock className="mt-6">
         <div
         className= "mt-6 space-y-6 text-black"
         style={{
@@ -220,16 +222,50 @@ style={{backgroundImage: "url('/section-bg5.jpg')"}}
               yourself gifts from the shop!
             </p> 
         </div>
+        </Sandyblock>
     </Reveal>
 </section>
 
+<section
+className= "relative flex min-h-screen items-center justify-end bg-cover bg-center px-6 py-24 sm:px-16"
+style={{backgroundImage: "url('/section-bg5.jpg')" , backgroundAttachment: "fixed"}}
+>
+    <Reveal className="max-w-3xl">
+        <h2
+        className= "text-white"
+        style={{
+            fontFamily: "var(--font-script)",
+            fontWeight: 400,
+            fontSize: "clamp(2.0rem, 6vw, 3.5rem)",
+            WebkitTextStroke: "1.5px #2db3d4",
+        }}
+        >
+            Steps to attend the irl event
+        </h2>
+
+    <ol
+    className="mt-6 space-y-4 text-black list-decimal list-inside"
+    style={{
+        fontFamily: "var(--font-body)",
+        fontWeight: 600,
+        fontSize: "clamp(1.35rem, 2.1vw, 1.75rem)",
+        lineHeight: 1.6,
+    }}>
+        <li>Get an idea for a project!</li>
+        <li>Build one project or multiple for up to 50 hours</li>
+        <li>Log your hours on Hackatime</li>
+        <li>Ship your project!</li>
+        <li>Buy a ticket and become a Hack Oasis attendee!</li>
+    </ol>
+</Reveal>
+</section>
 
 
 <section
  className="relative flex min-h-screen items-center bg-cover bg-center px-6 py-24 sm:px-16"
- style={{backgroundImage: "url('/section-bg5.jpg')"}}
+ style={{backgroundImage: "url('/section-bg5.jpg')", backgroundAttachment: "fixed"}}
  >
-    <Reveal className="w-full max-w-2xl">
+    <Reveal className="w-full max-w-2xl mx-auto text-center">
           <h2
             className="text-white"
             style={{
@@ -253,7 +289,7 @@ style={{backgroundImage: "url('/section-bg5.jpg')"}}
 
  <section
  className="relative flex min-h-screen items-center bg-cover bg-center px-6 py-24 sm:px-16"
- style={{backgroundImage: "url('/section-bg5.jpg')"}}
+ style={{backgroundImage: "url('/section-bg5.jpg')", backgroundAttachment: "fixed"}}
  >
     <Reveal>
         <p
@@ -261,12 +297,12 @@ style={{backgroundImage: "url('/section-bg5.jpg')"}}
         style={{
             fontFamily: "var(--font-body)",
             fontWeight: 600,
-            fontSize: "clamp(1.35rem, 2.1vw, 1.75rem)",
+            fontSize: "clamp(0.8rem, 2.1vw, 1.5rem)",
             lineHeight: 1.7,
         }}
         >
-            A project by Hack Clubbers at{""} <Link href="https://hackclub.com/" className="underline">Hack Club!</Link> 
-             Hack Club is a 501(c)(3) nonprofit and network of 100k+
+            A project by Hack Clubbers at{""} <Link href="https://hackclub.com/" className="underline">Hack Club!</Link>{" "}
+            Hack Club is a 501(c)(3) nonprofit and network of 100k+
             technical high schoolers. We believe you learn best by building,
             so we are creating this community and providing grants so
             you can make awesome projects. In the past few years, we have
@@ -281,7 +317,7 @@ style={{backgroundImage: "url('/section-bg5.jpg')"}}
         style={{
             fontFamily: "var(--font-body)",
             fontWeight: 600,
-            fontSize: "clamp(1.35rem, 2.1vw, 1.75rem)",
+            fontSize: "clamp(0.8rem, 2.1vw, 1.5rem)",
             lineHeight: 1.7,
         }}
         > 
