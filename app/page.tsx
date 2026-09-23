@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import localFont from "next/font/local";
 import { Press_Start_2P } from "next/font/google";
-import Sandyblock from "./animation";
+import WelcomeIntro from "./welcomeintro";
 
 const playfair = localFont({
     src: "./fonts/HennyPenny-Regular.woff2",
@@ -28,6 +28,23 @@ const marykate= localFont({
     src: "./fonts/Unkempt-Regular.ttf",
     variable: "--font-body",
 });
+
+//Card
+function Sandyblock({
+    children,
+    className= "",
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) {
+    return (
+        <div
+        className={`relative rounded-3xl bg-[#e5c99b] px-8 py-8 shadow-xl ${className}`}
+        >
+            {children}
+        </div>
+    );
+}
 
 //FAQ
 function Reveal({
@@ -112,6 +129,7 @@ export default function Home() {
         <main 
         className={`${playfair.variable} ${pixel.variable} ${kavoon.variable} ${marykate.variable} relative`}
     >
+        <WelcomeIntro />
         <div
         className="fixed left-1/2 top-0 z-50 w-32 -translate-x-1/2 sm:w-44"
         style={{ paddingTop: "env(safe-area-inset-top, 0px)"}}
@@ -201,7 +219,7 @@ style={{backgroundImage: "url('/section-bg5.jpg')" , backgroundAttachment: "fixe
         </h2>
         <Sandyblock className="mt-6">
         <div
-        className= "mt-6 space-y-6 text-black"
+        className= "space-y-6 text-black"
         style={{
             fontFamily: "var(--font-body)",
             fontWeight: 600,
@@ -243,8 +261,10 @@ style={{backgroundImage: "url('/section-bg5.jpg')" , backgroundAttachment: "fixe
             Steps to attend the irl event
         </h2>
 
+        <Sandyblock className="mt-6">
+
     <ol
-    className="mt-6 space-y-4 text-black list-decimal list-inside"
+    className=" space-y-4 text-black list-decimal list-inside"
     style={{
         fontFamily: "var(--font-body)",
         fontWeight: 600,
@@ -257,6 +277,7 @@ style={{backgroundImage: "url('/section-bg5.jpg')" , backgroundAttachment: "fixe
         <li>Ship your project!</li>
         <li>Buy a ticket and become a Hack Oasis attendee!</li>
     </ol>
+    </Sandyblock>
 </Reveal>
 </section>
 
@@ -277,11 +298,14 @@ style={{backgroundImage: "url('/section-bg5.jpg')" , backgroundAttachment: "fixe
           >
             FAQ
           </h2>
-          <div className="mt-6">
+
+          <Sandyblock className="mt-6">
+          <div>
             {faqData.map((item) => (
                 <FaqItem key={item.q} {...item} />
     ))}
           </div>
+          </Sandyblock>
           </Reveal>
  </section>
 
@@ -292,6 +316,9 @@ style={{backgroundImage: "url('/section-bg5.jpg')" , backgroundAttachment: "fixe
  style={{backgroundImage: "url('/section-bg5.jpg')", backgroundAttachment: "fixed"}}
  >
     <Reveal>
+
+        
+          <Sandyblock className="mt-6">
         <p
         className="max-w-2xl text-black"
         style={{
@@ -327,6 +354,8 @@ style={{backgroundImage: "url('/section-bg5.jpg')" , backgroundAttachment: "fixe
             <Link href="https://www.nasa.gov/learning-resources/space-out-this-summer-with-variety-of-nasa-stem-activities/"  className="underline"> nasa.gov, {""}</Link>
             <Link href="https://www.youtube.com/live/UbfAhFxDomE?t=7033s" className="underline"> or watch us on stage with AMD CEO Lisa Su at CES.</Link>           
         </p>
+        
+      </Sandyblock>
 
         <div
         className="mt-12 grid grid-cols-2 gap-10 text-black sm:w-fit sm:grid-cols-2"
